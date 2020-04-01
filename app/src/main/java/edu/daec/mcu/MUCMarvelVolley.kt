@@ -14,7 +14,6 @@ class MUCMarvelVolley(val url:String,val contexto:Context,val mucAdapter: MUCDud
 
     fun callMarvelAPI(range: Int){
         val dataHeores = ArrayList<MUCDude>()
-        println(url)
         val requestMarvel = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener<JSONObject>{
                 response ->
@@ -29,7 +28,6 @@ class MUCMarvelVolley(val url:String,val contexto:Context,val mucAdapter: MUCDud
                         thumbnail)
                     dataHeores.add(mcuDude)
                 }
-                println(dataHeores.size)
                 mucAdapter.setData(dataHeores)
             }, Response.ErrorListener {
                 Toast.makeText(contexto, "Error garrafal compa", Toast.LENGTH_LONG).show()
